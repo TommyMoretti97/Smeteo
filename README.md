@@ -2,7 +2,7 @@
 Progetto realizzato con React redux, react-router-dom, bootstrap. <br>
 Per visualizzare il progetto correttamente vai su <a href="https://home.openweathermap.org/users/sign_in">OpenWeather API</a> registrati e per email ricevere la chiave Api.
 Sostituisci la chiave Api appena ottenuta con la scritta {API_KEY} nella pagina MoreInfo.jsx e nel components MainComponents.jsx nella constante url.
-<img src="./react-meteo/src/img/Smeteo.png">
+<img src="./react-meteo/src/img/ApiKeySmeteo.PNG">
 <h3>Homepage:</h3>
 <img src="./react-meteo/src/img/Smeteo-Homepage.PNG">
 Inserisci il nome della citta o nazione per cercare tutti i dati meteo.
