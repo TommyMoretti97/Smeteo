@@ -14,7 +14,7 @@ function MoreInfo (){
 
 
     const {cityname } = useParams(); // parametro passato con router dom
-    const url3 = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&APPID=50a797971b643a24558030d56349be65&lang=it`; //nuovo url con il dato passato
+    const url3 = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&APPID={API_KEY}&lang=it`; //nuovo url con il dato passato
 
     useEffect(() => {
         setTimeout(() => {
