@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import SpinnerWait from "../components/SpinnerWait";
+import { apiKey } from "../components/ApiKeyMeteo";
 
 function MoreInfo (){
     //inizializzazione stati
@@ -14,7 +15,7 @@ function MoreInfo (){
 
 
     const {cityname } = useParams(); // parametro passato con router dom
-    const url3 = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&APPID={API_KEY}&lang=it`; //nuovo url con il dato passato
+    const url3 = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&APPID=${apiKey}&lang=it`; //nuovo url con il dato passato
 
     useEffect(() => {
         setTimeout(() => {
@@ -33,10 +34,12 @@ function MoreInfo (){
    
     },[]) //fetch nuovi dati con useEffect [] per farlo triggerare 1 sola volta
 
-    
+    const backgroundImage = localStorage.getItem('backgroundImage');
+
 
     return (
         <>
+         <div style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize:'cover'}}>
         <Link to={'/'}> <h3>Ritorna alla pagina Principale</h3> </Link>
         {loading ?(
             <div className="text-center">
@@ -44,6 +47,7 @@ function MoreInfo (){
             </div>
         ):(
             <>
+            
         <div>
             <h1 className="text-center">{city1.name}</h1>
         </div>
@@ -129,8 +133,10 @@ function MoreInfo (){
                 
             </Col>
         </Row>
+        
         </>
         )};
+        </div>
         </>
     )
 }

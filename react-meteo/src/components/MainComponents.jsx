@@ -16,6 +16,7 @@ import { Line } from 'react-chartjs-2';
 import { setRating } from '../actions/actions';
 import { useDispatch,useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
+import { apiKey } from "./ApiKeyMeteo";
 
 
 ChartJS.register(
@@ -28,7 +29,7 @@ ChartJS.register(
   Legend
 );
 
-const MainComponents = () => {
+const MainComponents = ({backgroundImageHomepage}) => {
    
   // Inizializzazione Stati
   const [query, setQuery] = useState("");
@@ -42,6 +43,8 @@ const MainComponents = () => {
  const [nextDay, setNextDay] = useState([]);
  const [tempNextHours, setTempNextHours] = useState([]);
  const [loading, setLoading] = useState(false);
+
+ 
  
  
  const dispatch = useDispatch();
@@ -51,8 +54,8 @@ const MainComponents = () => {
   dispatch(setRating(e.target.value));
 }; //funzione per ottenere il valore che viene cliccato dalla select
 
-const url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&APPID={API_KEY}&lang=it`; // url per quasi tutti i dati
-const url2 = `https://api.openweathermap.org/data/2.5/forecast?q=${query}&APPID={API_KEY}&lang=it`; // url per coordinate e temperature prossimi giorni
+const url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&APPID=${apiKey}&lang=it`; // url per quasi tutti i dati
+const url2 = `https://api.openweathermap.org/data/2.5/forecast?q=${query}&APPID=${apiKey}&lang=it`; // url per coordinate e temperature prossimi giorni
 
         const handleChange = (e) => {
           setQuery(e.target.value);
@@ -73,8 +76,7 @@ const url2 = `https://api.openweathermap.org/data/2.5/forecast?q=${query}&APPID=
                  // Stato per inserire tempo atmosferico
                 setSunrise(getFormattedTime(data.sys.sunrise)); // Stato per inserire l'alba
                 setSunset(getFormattedTime(data.sys.sunset)); //Stato per inserire tramonto 
-                
-               
+                backgroundImageHomepage(data.weather[0].main);
               } else {
                 alert("Error fetching results"); //se response non è ok
               }

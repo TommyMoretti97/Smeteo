@@ -23,10 +23,7 @@
 .my-input{
     width: 50%;
 }
-#root{
-    background-image: url(https://img.freepik.com/free-vector/beautiful-clear-blue-sky-background_1308-10550.jpg?size=626&ext=jpg&ga=GA1.1.1546980028.1702425600&semt=ais);
-    background-repeat: no-repeat;
-    background-size: cover;
+#background-container{
     min-height: 100vh;
 }
 
@@ -80,6 +77,9 @@ svg {
           display: flex;
           flex-wrap: wrap;
       }
+      #background-container{
+        background-size: cover !important;
+      }
      }
     @media screen and (max-width:768px){
         #sun-resp{
@@ -98,10 +98,14 @@ svg {
         }
         .my-form{
             position: relative;
-            right: 70px;
+            right: 0px;
         }
       .grapich{
         margin: 0 !important;
-       
       }
+      #background-container{
+       background-size: contain !important;
+  background-position: center bottom !important;
+      }
+      
          }

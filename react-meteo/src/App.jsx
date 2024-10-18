@@ -12,6 +12,7 @@ function App() {
 
   return (
     <>
+    
     <Provider store = { store }>
       
       <Routes>
@@ -19,6 +20,7 @@ function App() {
       <Route path='/more-info/:cityname'element={<ErrorBoundary><MoreInfo/></ErrorBoundary>} /> 
       </Routes>
       </Provider>
+     
     </>
   )
 }
